@@ -3,50 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>個人履歷 - 亞洲大學</title>
+    <title>個人履歷 - 114022057</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 40px; background-color: #f0f2f5; }
-        .resume-card { background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        header { border-bottom: 3px solid #0056b3; padding-bottom: 20px; margin-bottom: 30px; text-align: center; }
-        h1 { margin: 0; color: #0056b3; font-size: 2.5em; }
-        .info { color: #555; font-size: 1.1em; margin-top: 10px; }
-        section { margin-bottom: 35px; }
-        h3 { color: #0056b3; border-left: 6px solid #0056b3; padding-left: 15px; margin-bottom: 15px; }
-        ul { list-style: none; padding: 0; }
-        li { margin-bottom: 12px; padding: 12px; background: #f8f9fa; border-radius: 6px; border-left: 3px solid #dee2e6; }
-        .skill-tag { display: inline-block; background: #0056b3; color: #fff; padding: 6px 15px; border-radius: 25px; font-size: 0.9em; margin: 5px; transition: 0.3s; }
-        .skill-tag:hover { background: #004494; transform: translateY(-2px); }
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-color: #ecf0f1;
+            --text-color: #333;
+        }
+
+        body { 
+            font-family: 'Noto Sans TC', sans-serif; 
+            line-height: 1.6; 
+            color: var(--text-color); 
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .resume-container { 
+            background: #fff; 
+            width: 100%;
+            max-width: 900px; 
+            display: flex; /* 雙欄佈局 */
+            border-radius: 15px; 
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2); 
+        }
+
+        /* 左側欄位 (深色) */
+        .sidebar {
+            background-color: var(--primary-color);
+            color: white;
+            width: 35%;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid var(--accent-color);
+            object-fit: cover;
+            margin-bottom: 20px;
+            background-color: #fff; /* 預防照片未讀取時的底色 */
+        }
+
+        .sidebar h2 { margin: 10px 0 5px; font-size: 1.5em; }
+        .student-id { color: var(--accent-color); font-weight: bold; margin-bottom: 30px; display: block; }
+
+        /* 右側內容區 */
+        .main-content {
+            padding: 40px;
+            width: 65%;
+        }
+
+        header { border-bottom: 2px solid var(--accent-color); padding-bottom: 15px; margin-bottom: 25px; }
+        header h1 { margin: 0; font-size: 2.2em; color: var(--primary-color); }
+
+        section { margin-bottom: 30px; }
+        h3 { color: var(--accent-color); border-bottom: 1px solid #eee; padding-bottom: 5px; margin-bottom: 15px; }
+
+        .skills-container { display: flex; flex-wrap: wrap; gap: 10px; }
+        .skill-tag { 
+            background: var(--accent-color); 
+            color: #fff; 
+            padding: 5px 12px; 
+            border-radius: 5px; 
+            font-size: 0.85em; 
+        }
+
+        ul { padding-left: 20px; }
+        li { margin-bottom: 10px; }
+
+        /* 手機版適應 */
+        @media (max-width: 768px) {
+            .resume-container { flex-direction: column; }
+            .sidebar, .main-content { width: 100%; box-sizing: border-box; }
+        }
     </style>
 </head>
 <body>
-    <div class="resume-card">
-        <header>
-            <h1>個人履歷</h1>
-            <p class="info">亞洲大學 | 學號：114022057</p>
-        </header>
+    <div class="resume-container">
+        <aside class="sidebar">
+            <img src="my_photo.jpg" alt="個人照片" class="profile-img">
+            <h2>張詠鈞</h2>
+            <span class="student-id">學號：114022057</span>
+            
+            <section style="margin-top: 40px;">
+                <h3>聯絡資訊</h3>
+                <p>📧 114022057@asia.edu.tw</p>
+                <p>📍 亞洲大學, 台中, 台灣</p>
+            </section>
+        </aside>
 
-        <section>
-            <h3>關於我</h3>
-            <p>我是就讀於亞洲大學的學生，目前正在學習網頁開發與數位工具的應用。我喜歡挑戰新事物，具備良好的學習態度與解決問題的決心。</p>
-        </section>
+        <div class="main-content">
+            <header>
+                <h1>個人履歷</h1>
+                <p>亞洲大學學生 | 數位工具與前端開發愛好者</p>
+            </header>
 
-        <section>
-            <h3>專業技能與工具</h3>
-            <div>
-                <span class="skill-tag">HTML / CSS</span>
-                <span class="skill-tag">Git & GitHub</span>
-                <span class="skill-tag">VS Code 基礎操作</span>
-                <span class="skill-tag">邏輯思維與運算思考</span>
-            </div>
-        </section>
+            <section>
+                <h3>關於我</h3>
+                <p>我是就讀於亞洲大學的學生，目前專注於學習網頁開發（Fintech 課程應用）與數位工具的實務操作。我致力於透過技術解決問題，並不斷提升自己的邏輯思維與實作能力。</p>
+            </section>
 
-        <section>
-            <h3>學習經歷</h3>
-            <ul>
-                <li><strong>亞洲大學</strong> - 學士學位 (在學中)</li>
-                <li><strong>網頁前端實務練習</strong> - 成功利用 GitHub Pages 部署個人靜態網頁。</li>
-            </ul>
-        </section>
+            <section>
+                <h3>專業技能</h3>
+                <div class="skills-container">
+                    <span class="skill-tag">HTML5 / CSS3</span>
+                    <span class="skill-tag">Git & GitHub Pages</span>
+                    <span class="skill-tag">ChatGPT AI 協作</span>
+                    <span class="skill-tag">VS Code 基礎操作</span>
+                    <span class="skill-tag">金融科技概論</span>
+                </div>
+            </section>
+
+            <section>
+                <h3>學習經歷</h3>
+                <ul>
+                    <li>
+                        <strong>亞洲大學</strong> - 學士學位 (在學中)
+                        <p style="font-size: 0.9em; color: #666;">主修：金融科技相關課程</p>
+                    </li>
+                    <li>
+                        <strong>網頁實務作業</strong> - 成功利用 AI 輔助與 Git 版本控制部署個人履歷網站。
+                    </li>
+                </ul>
+            </section>
+        </div>
     </div>
 </body>
 </html>
