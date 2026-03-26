@@ -7,9 +7,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --accent-color: #3498db;
-            --bg-color: #ecf0f1;
+            --primary-color: #2c3e50; /* 深藍灰色 */
+            --accent-color: #3498db;  /* 亮藍色 */
+            --bg-color: #f4f7f6;
             --text-color: #333;
         }
 
@@ -28,10 +28,10 @@
             background: #fff; 
             width: 100%;
             max-width: 900px; 
-            display: flex; /* 雙欄佈局 */
+            display: flex; /* 雙欄佈局關鍵 */
             border-radius: 15px; 
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2); 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15); 
         }
 
         /* 左側欄位 (深色) */
@@ -39,99 +39,117 @@
             background-color: var(--primary-color);
             color: white;
             width: 35%;
-            padding: 40px 20px;
+            padding: 40px 25px;
             text-align: center;
         }
 
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
             border: 4px solid var(--accent-color);
             object-fit: cover;
-            margin-bottom: 20px;
-            background-color: #fff; /* 預防照片未讀取時的底色 */
+            margin-bottom: 25px;
+            background-color: #fff;
         }
 
-        .sidebar h2 { margin: 10px 0 5px; font-size: 1.5em; }
-        .student-id { color: var(--accent-color); font-weight: bold; margin-bottom: 30px; display: block; }
+        .sidebar h2 { margin: 10px 0 5px; font-size: 1.6em; letter-spacing: 2px; }
+        .student-id { color: var(--accent-color); font-weight: bold; font-size: 1.1em; margin-bottom: 35px; display: block; }
+
+        .sidebar-info { text-align: left; margin-top: 30px; font-size: 0.9em; }
+        .sidebar-info h3 { font-size: 1.1em; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 5px; margin-bottom: 10px; }
+        .sidebar-info p { margin: 8px 0; display: flex; align-items: center; }
 
         /* 右側內容區 */
         .main-content {
-            padding: 40px;
+            padding: 40px 50px;
             width: 65%;
         }
 
-        header { border-bottom: 2px solid var(--accent-color); padding-bottom: 15px; margin-bottom: 25px; }
-        header h1 { margin: 0; font-size: 2.2em; color: var(--primary-color); }
+        header { border-bottom: 3px solid var(--accent-color); padding-bottom: 15px; margin-bottom: 30px; }
+        header h1 { margin: 0; font-size: 2.4em; color: var(--primary-color); }
 
-        section { margin-bottom: 30px; }
-        h3 { color: var(--accent-color); border-bottom: 1px solid #eee; padding-bottom: 5px; margin-bottom: 15px; }
+        section { margin-bottom: 35px; }
+        h3 { color: var(--accent-color); font-size: 1.3em; margin-bottom: 15px; }
 
         .skills-container { display: flex; flex-wrap: wrap; gap: 10px; }
         .skill-tag { 
-            background: var(--accent-color); 
-            color: #fff; 
-            padding: 5px 12px; 
-            border-radius: 5px; 
+            background: #e1f0fa; 
+            color: var(--accent-color); 
+            padding: 6px 15px; 
+            border-radius: 20px; 
             font-size: 0.85em; 
+            font-weight: bold;
         }
 
-        ul { padding-left: 20px; }
-        li { margin-bottom: 10px; }
+        ul { padding-left: 20px; margin: 0; }
+        li { margin-bottom: 12px; }
+        strong { color: var(--primary-color); }
 
-        /* 手機版適應 */
+        /* RWD 手機版適應 */
         @media (max-width: 768px) {
             .resume-container { flex-direction: column; }
             .sidebar, .main-content { width: 100%; box-sizing: border-box; }
+            .sidebar { padding: 30px 20px; }
         }
     </style>
 </head>
 <body>
     <div class="resume-container">
         <aside class="sidebar">
-            <img src="my_photo.jpg" alt="個人照片" class="profile-img">
+            <img src="images/my_photo.jpg" alt="張詠鈞的照片" class="profile-img">
             <h2>張詠鈞</h2>
             <span class="student-id">學號：114022057</span>
             
-            <section style="margin-top: 40px;">
-                <h3>聯絡資訊</h3>
+            <div class="sidebar-info">
+                <h3>聯絡方式</h3>
                 <p>📧 114022057@asia.edu.tw</p>
                 <p>📍 亞洲大學, 台中, 台灣</p>
-            </section>
+            </div>
+
+            <div class="sidebar-info">
+                <h3>語言能力</h3>
+                <p>中文 (母語)</p>
+                <p>英文 (TOEIC 學習中)</p>
+            </div>
         </aside>
 
         <div class="main-content">
             <header>
                 <h1>個人履歷</h1>
-                <p>亞洲大學學生 | 數位工具與前端開發愛好者</p>
+                <p>亞洲大學學生 | 數位工具與 FinTech 學習者</p>
             </header>
 
             <section>
                 <h3>關於我</h3>
-                <p>我是就讀於亞洲大學的學生，目前專注於學習網頁開發（Fintech 課程應用）與數位工具的實務操作。我致力於透過技術解決問題，並不斷提升自己的邏輯思維與實作能力。</p>
+                <p>目前就讀於亞洲大學一年級。我對數位科技與網頁開發充滿興趣，擅長利用 AI 工具輔助學習。在課程中學會了如何使用 HTML、CSS、Git 及 GitHub 進行專案開發與部署，並致力於提升自己的邏輯思考能力。</p>
             </section>
 
             <section>
                 <h3>專業技能</h3>
                 <div class="skills-container">
                     <span class="skill-tag">HTML5 / CSS3</span>
-                    <span class="skill-tag">Git & GitHub Pages</span>
+                    <span class="skill-tag">GitHub Pages 部署</span>
+                    <span class="skill-tag">Python 基礎</span>
                     <span class="skill-tag">ChatGPT AI 協作</span>
-                    <span class="skill-tag">VS Code 基礎操作</span>
-                    <span class="skill-tag">金融科技概論</span>
+                    <span class="skill-tag">金融科技應用</span>
                 </div>
             </section>
 
             <section>
-                <h3>學習經歷</h3>
+                <h3>學習經歷與專案</h3>
                 <ul>
                     <li>
                         <strong>亞洲大學</strong> - 學士學位 (在學中)
-                        <p style="font-size: 0.9em; color: #666;">主修：金融科技相關課程</p>
+                        <p style="font-size: 0.9em; color: #666; margin-top: 5px;">
+                            主要學習：運算思維、金融科技導論、永續發展目標 (SDGs)。
+                        </p>
                     </li>
                     <li>
-                        <strong>網頁實務作業</strong> - 成功利用 AI 輔助與 Git 版本控制部署個人履歷網站。
+                        <strong>GitHub Pages 個人履歷專案</strong>
+                        <p style="font-size: 0.9em; color: #666; margin-top: 5px;">
+                            利用 HTML/CSS 獨立設計並透過 Git 版本控制系統成功發布個人網站。
+                        </p>
                     </li>
                 </ul>
             </section>
