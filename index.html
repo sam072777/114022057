@@ -7,8 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2c3e50; /* 深藍灰色 */
-            --accent-color: #3498db;  /* 亮藍色 */
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
             --bg-color: #f4f7f6;
             --text-color: #333;
         }
@@ -21,20 +21,46 @@
             margin: 0;
             padding: 20px;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* 音樂播放按鈕樣式 */
+        .music-player {
+            margin-bottom: 20px;
+            background: #fff;
+            padding: 10px 20px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        #musicBtn {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        #musicBtn:hover {
+            background: #2980b9;
+            transform: scale(1.05);
         }
 
         .resume-container { 
             background: #fff; 
             width: 100%;
             max-width: 900px; 
-            display: flex; /* 雙欄佈局關鍵 */
+            display: flex; 
             border-radius: 15px; 
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15); 
         }
 
-        /* 左側欄位 (深色) */
+        /* 左側欄位 */
         .sidebar {
             background-color: var(--primary-color);
             color: white;
@@ -50,15 +76,11 @@
             border: 4px solid var(--accent-color);
             object-fit: cover;
             margin-bottom: 25px;
-            background-color: #fff;
+            background-color: #eee;
         }
 
-        .sidebar h2 { margin: 10px 0 5px; font-size: 1.6em; letter-spacing: 2px; }
-        .student-id { color: var(--accent-color); font-weight: bold; font-size: 1.1em; margin-bottom: 35px; display: block; }
-
-        .sidebar-info { text-align: left; margin-top: 30px; font-size: 0.9em; }
-        .sidebar-info h3 { font-size: 1.1em; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 5px; margin-bottom: 10px; }
-        .sidebar-info p { margin: 8px 0; display: flex; align-items: center; }
+        .sidebar h2 { margin: 10px 0 5px; font-size: 1.6em; }
+        .student-id { color: var(--accent-color); font-weight: bold; display: block; margin-bottom: 30px; }
 
         /* 右側內容區 */
         .main-content {
@@ -67,93 +89,92 @@
         }
 
         header { border-bottom: 3px solid var(--accent-color); padding-bottom: 15px; margin-bottom: 30px; }
-        header h1 { margin: 0; font-size: 2.4em; color: var(--primary-color); }
+        h3 { color: var(--accent-color); border-bottom: 1px solid #eee; padding-bottom: 5px; }
 
-        section { margin-bottom: 35px; }
-        h3 { color: var(--accent-color); font-size: 1.3em; margin-bottom: 15px; }
-
-        .skills-container { display: flex; flex-wrap: wrap; gap: 10px; }
         .skill-tag { 
             background: #e1f0fa; 
             color: var(--accent-color); 
-            padding: 6px 15px; 
+            padding: 5px 12px; 
             border-radius: 20px; 
             font-size: 0.85em; 
-            font-weight: bold;
+            margin: 3px; 
+            display: inline-block; 
         }
 
-        ul { padding-left: 20px; margin: 0; }
-        li { margin-bottom: 12px; }
-        strong { color: var(--primary-color); }
-
-        /* RWD 手機版適應 */
+        /* 手機版適應 */
         @media (max-width: 768px) {
             .resume-container { flex-direction: column; }
-            .sidebar, .main-content { width: 100%; box-sizing: border-box; }
-            .sidebar { padding: 30px 20px; }
+            .sidebar, .main-content { width: 100%; }
         }
     </style>
 </head>
 <body>
+
+    <div class="music-player">
+        <audio id="bgm" loop>
+            <source src="bgm.mp3" type="audio/mpeg">
+            您的瀏覽器不支援音樂播放。
+        </audio>
+        <button onclick="toggleMusic()" id="musicBtn">🎵 播放背景音樂</button>
+    </div>
+
     <div class="resume-container">
         <aside class="sidebar">
-            <img src="images/my_photo.jpg" alt="張詠鈞的照片" class="profile-img">
+            <img src="my_photo.jpg.jpg" alt="張詠鈞" class="profile-img">
             <h2>張詠鈞</h2>
             <span class="student-id">學號：114022057</span>
-            
-            <div class="sidebar-info">
-                <h3>聯絡方式</h3>
+            <div style="text-align: left; font-size: 0.9em; margin-top: 20px;">
                 <p>📧 114022057@asia.edu.tw</p>
-                <p>📍 亞洲大學, 台中, 台灣</p>
-            </div>
-
-            <div class="sidebar-info">
-                <h3>語言能力</h3>
-                <p>中文 (母語)</p>
-                <p>英文 (TOEIC 學習中)</p>
+                <p>📍 亞洲大學, 台中</p>
             </div>
         </aside>
 
         <div class="main-content">
             <header>
                 <h1>個人履歷</h1>
-                <p>亞洲大學學生 | 數位工具與 FinTech 學習者</p>
+                <p>亞洲大學學生 | FinTech 數位工具應用</p>
             </header>
 
             <section>
                 <h3>關於我</h3>
-                <p>目前就讀於亞洲大學一年級。我對數位科技與網頁開發充滿興趣，擅長利用 AI 工具輔助學習。在課程中學會了如何使用 HTML、CSS、Git 及 GitHub 進行專案開發與部署，並致力於提升自己的邏輯思考能力。</p>
+                <p>我是張詠鈞，目前就讀亞洲大學。這是我結合 HTML、CSS 與 JavaScript 實作的個人履歷網頁。我學習如何使用 Git 進行版本控制，並透過 GitHub Pages 部署靜態網站。</p>
             </section>
 
             <section>
                 <h3>專業技能</h3>
                 <div class="skills-container">
                     <span class="skill-tag">HTML5 / CSS3</span>
-                    <span class="skill-tag">GitHub Pages 部署</span>
-                    <span class="skill-tag">Python 基礎</span>
-                    <span class="skill-tag">ChatGPT AI 協作</span>
-                    <span class="skill-tag">金融科技應用</span>
+                    <span class="skill-tag">Git & GitHub</span>
+                    <span class="skill-tag">AI 工具協作 (ChatGPT)</span>
+                    <span class="skill-tag">網頁音訊整合</span>
                 </div>
             </section>
 
             <section>
-                <h3>學習經歷與專案</h3>
+                <h3>學習專案</h3>
                 <ul>
-                    <li>
-                        <strong>亞洲大學</strong> - 學士學位 (在學中)
-                        <p style="font-size: 0.9em; color: #666; margin-top: 5px;">
-                            主要學習：運算思維、金融科技導論、永續發展目標 (SDGs)。
-                        </p>
-                    </li>
-                    <li>
-                        <strong>GitHub Pages 個人履歷專案</strong>
-                        <p style="font-size: 0.9em; color: #666; margin-top: 5px;">
-                            利用 HTML/CSS 獨立設計並透過 Git 版本控制系統成功發布個人網站。
-                        </p>
-                    </li>
+                    <li><strong>W4 作業</strong>：完成個人雙欄位履歷設計。</li>
+                    <li><strong>W5 作業</strong>：整合背景音樂與多媒體控制按鈕。</li>
                 </ul>
             </section>
         </div>
     </div>
+
+    <script>
+        var audio = document.getElementById("bgm");
+        var btn = document.getElementById("musicBtn");
+
+        function toggleMusic() {
+            if (audio.paused) {
+                audio.play();
+                btn.innerHTML = "⏸ 暫停音樂";
+                btn.style.background = "#e67e22"; // 播放時變色
+            } else {
+                audio.pause();
+                btn.innerHTML = "🎵 播放背景音樂";
+                btn.style.background = "#3498db";
+            }
+        }
+    </script>
 </body>
 </html>
