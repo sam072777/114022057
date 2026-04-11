@@ -3,178 +3,243 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>個人履歷 - 114022057</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>個人履歷 - 張詠鈞 114022057</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --accent-color: #3498db;
-            --bg-color: #f4f7f6;
-            --text-color: #333;
+            --primary-color: #2196F3;
+            --secondary-color: #1976D2;
+            --bg-gradient: linear-gradient(135deg, #e0f2fe 0%, #f1f5f9 100%);
+            --card-bg: #ffffff;
+            --text-main: #2d3436;
+            --text-sub: #636e72;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         }
 
-        body { 
-            font-family: 'Noto Sans TC', sans-serif; 
-            line-height: 1.6; 
-            color: var(--text-color); 
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 20px;
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Poppins', 'Noto Sans TC', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            line-height: 1.8;
+            padding: 40px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        /* 音樂播放按鈕樣式 */
-        .music-player {
-            margin-bottom: 20px;
-            background: #fff;
-            padding: 10px 20px;
-            border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        #musicBtn {
-            background: var(--accent-color);
-            color: white;
-            border: none;
-            padding: 8px 20px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        #musicBtn:hover {
-            background: #2980b9;
-            transform: scale(1.05);
-        }
-
-        .resume-container { 
-            background: #fff; 
+        /* 總容器 */
+        .container {
             width: 100%;
-            max-width: 900px; 
-            display: flex; 
-            border-radius: 15px; 
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15); 
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
         }
 
-        /* 左側欄位 */
-        .sidebar {
-            background-color: var(--primary-color);
-            color: white;
-            width: 35%;
-            padding: 40px 25px;
+        /* 卡片共用樣式 */
+        .card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        /* 個人檔案卡片 (置中設計) */
+        .profile-card {
             text-align: center;
         }
 
-        .profile-img {
-            width: 160px;
-            height: 160px;
+        .profile-img-wrapper {
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
-            border: 4px solid var(--accent-color);
+            margin: 0 auto 20px;
+            border: 5px solid #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .profile-img-wrapper img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
+        }
+
+        .name { font-size: 2.2rem; font-weight: 700; color: var(--primary-color); margin-bottom: 5px; }
+        .student-id { font-size: 1.1rem; color: var(--text-sub); margin-bottom: 20px; font-weight: 400; letter-spacing: 1px; }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
             margin-bottom: 25px;
-            background-color: #eee;
         }
 
-        .sidebar h2 { margin: 10px 0 5px; font-size: 1.6em; }
-        .student-id { color: var(--accent-color); font-weight: bold; display: block; margin-bottom: 30px; }
+        .contact-item { font-size: 0.95rem; color: var(--text-main); display: flex; align-items: center; gap: 8px; }
+        .contact-item i { color: var(--primary-color); }
 
-        /* 右側內容區 */
-        .main-content {
-            padding: 40px 50px;
-            width: 65%;
+        /* 按鈕樣式 */
+        .btn-group { display: flex; justify-content: center; gap: 15px; }
+        
+        .btn {
+            padding: 10px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            border: none;
         }
 
-        header { border-bottom: 3px solid var(--accent-color); padding-bottom: 15px; margin-bottom: 30px; }
-        h3 { color: var(--accent-color); border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        .btn-primary { background: var(--primary-color); color: white; }
+        .btn-primary:hover { background: var(--secondary-color); transform: translateY(-3px); }
+        
+        .btn-music { background: #6c5ce7; color: white; }
+        .btn-music:hover { background: #a29bfe; transform: translateY(-3px); }
 
-        .skill-tag { 
-            background: #e1f0fa; 
-            color: var(--accent-color); 
-            padding: 5px 12px; 
-            border-radius: 20px; 
-            font-size: 0.85em; 
-            margin: 3px; 
-            display: inline-block; 
+        /* 卡片標題樣式 */
+        .card h3 {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 2px solid #f1f2f6;
+            padding-bottom: 10px;
         }
 
-        /* 手機版適應 */
-        @media (max-width: 768px) {
-            .resume-container { flex-direction: column; }
-            .sidebar, .main-content { width: 100%; }
+        /* 技能標籤 */
+        .skills { display: flex; flex-wrap: wrap; gap: 10px; }
+        .skill-tag {
+            background: #e1f5fe;
+            color: #0288d1;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* 經歷清單 */
+        .experience-list { list-style: none; }
+        .exp-item {
+            padding-left: 20px;
+            border-left: 3px solid #dfe6e9;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .exp-item:last-child { margin-bottom: 0; }
+        .exp-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 13px;
+            height: 13px;
+            background: var(--primary-color);
+            border-radius: 50%;
+        }
+        .exp-title { font-weight: 600; font-size: 1.1rem; }
+        .exp-desc { color: var(--text-sub); font-size: 0.9rem; margin-top: 5px; }
+
+        @media (max-width: 600px) {
+            .card { padding: 30px 20px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="music-player">
-        <audio id="bgm" loop>
-            <source src="bgm.mp3" type="audio/mpeg">
-            您的瀏覽器不支援音樂播放。
-        </audio>
-        <button onclick="toggleMusic()" id="musicBtn">🎵 播放背景音樂</button>
-    </div>
+    <audio id="bgm" loop>
+        <source src="bgm.mp3" type="audio/mpeg">
+    </audio>
 
-    <div class="resume-container">
-        <aside class="sidebar">
-            <img src="my_photo.jpg" alt="張詠鈞" class="profile-img">
-            <h2>張詠鈞</h2>
-            <span class="student-id">學號：114022057</span>
-            <div style="text-align: left; font-size: 0.9em; margin-top: 20px;">
-                <p>📧 114022057@asia.edu.tw</p>
-                <p>📍 亞洲大學, 台中</p>
+    <div class="container">
+        
+        <header class="card profile-card">
+            <div class="profile-img-wrapper">
+                <img src="images/my_photo.jpg" alt="張詠鈞">
             </div>
-        </aside>
+            <h1 class="name">張詠鈞</h1>
+            <div class="student-id">Student ID: 114022057</div>
+            
+            <div class="contact-info">
+                <div class="contact-item"><i class="fas fa-university"></i> 亞洲大學</div>
+                <div class="contact-item"><i class="fas fa-envelope"></i> 114022057@asia.edu.tw</div>
+                <div class="contact-item"><i class="fas fa-location-dot"></i> Taichung, Taiwan</div>
+            </div>
 
-        <div class="main-content">
-            <header>
-                <h1>個人履歷</h1>
-                <p>亞洲大學學生 | FinTech 數位工具應用</p>
-            </header>
+            <div class="btn-group">
+                <a href="mailto:114022057@asia.edu.tw" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i> Contact Me
+                </a>
+                <button onclick="toggleMusic()" id="musicBtn" class="btn btn-music">
+                    <i class="fas fa-music"></i> Play Music
+                </button>
+            </div>
+        </header>
 
-            <section>
-                <h3>關於我</h3>
-                <p>我是張詠鈞，目前就讀亞洲大學。這是我結合 HTML、CSS 與 JavaScript 實作的個人履歷網頁。我學習如何使用 Git 進行版本控制，並透過 GitHub Pages 部署靜態網站。</p>
-            </section>
+        <section class="card">
+            <h3><i class="fas fa-user"></i> 關於我 / About Me</h3>
+            <p>我是就讀於亞洲大學的一年級學生，目前正專注於 FinTech 與網頁開發。我熱衷於學習如何利用 AI 與數位工具提升工作效率，並致力於將創意轉化為實際的程式專案。</p>
+        </section>
 
-            <section>
-                <h3>專業技能</h3>
-                <div class="skills-container">
-                    <span class="skill-tag">HTML5 / CSS3</span>
-                    <span class="skill-tag">Git & GitHub</span>
-                    <span class="skill-tag">AI 工具協作 (ChatGPT)</span>
-                    <span class="skill-tag">網頁音訊整合</span>
+        <section class="card">
+            <h3><i class="fas fa-code"></i> 專業技能 / Skills</h3>
+            <div class="skills">
+                <span class="skill-tag">HTML5 / CSS3</span>
+                <span class="skill-tag">Git & GitHub Pages</span>
+                <span class="skill-tag">ChatGPT Prompt Engineering</span>
+                <span class="skill-tag">Python Programming</span>
+                <span class="skill-tag">Responsive Web Design</span>
+            </div>
+        </section>
+
+        <section class="card">
+            <h3><i class="fas fa-briefcase"></i> 經歷與專案 / Experience</h3>
+            <div class="experience-list">
+                <div class="exp-item">
+                    <div class="exp-title">亞洲大學 - 學生</div>
+                    <div class="exp-desc">修讀金融科技、運算思維及網頁開發相關課程。</div>
                 </div>
-            </section>
+                <div class="exp-item">
+                    <div class="exp-title">DETOUR 街頭服飾品牌</div>
+                    <div class="exp-desc">負責品牌規劃、視覺設計與官網初步架構。</div>
+                </div>
+                <div class="exp-item">
+                    <div class="exp-title">GitHub 個人網頁部署</div>
+                    <div class="exp-desc">實作 CI/CD 流程，利用 GitHub Actions 自動化部署個人履歷。</div>
+                </div>
+            </div>
+        </section>
 
-            <section>
-                <h3>學習專案</h3>
-                <ul>
-                    <li><strong>W4 作業</strong>：完成個人雙欄位履歷設計。</li>
-                    <li><strong>W5 作業</strong>：整合背景音樂與多媒體控制按鈕。</li>
-                </ul>
-            </section>
-        </div>
     </div>
 
     <script>
-        var audio = document.getElementById("bgm");
-        var btn = document.getElementById("musicBtn");
+        const audio = document.getElementById("bgm");
+        const btn = document.getElementById("musicBtn");
 
         function toggleMusic() {
             if (audio.paused) {
                 audio.play();
-                btn.innerHTML = "⏸ 暫停音樂";
-                btn.style.background = "#e67e22"; // 播放時變色
+                btn.innerHTML = '<i class="fas fa-pause"></i> Pause Music';
             } else {
                 audio.pause();
-                btn.innerHTML = "🎵 播放背景音樂";
-                btn.style.background = "#3498db";
+                btn.innerHTML = '<i class="fas fa-music"></i> Play Music';
             }
         }
     </script>
+
 </body>
 </html>
